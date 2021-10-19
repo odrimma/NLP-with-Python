@@ -39,10 +39,10 @@ def create_cloud(total_terms, filename):
 
 def main():
     print('Извлекаем информацию из источников...')
-    # data_list = scraping('https://habr.com/ru/search/', 'криптография')
-    # if not writing_json(data_list, 'data.json'):
-    #     return None
-    # print('Извлечение завершено!')
+    data_list = scraping('https://habr.com/ru/search/', 'криптография')
+    if not writing_json(data_list, 'data.json'):
+        return None
+    print('Извлечение завершено!')
     data = read_json('data.json')
     if not data:
         return None
