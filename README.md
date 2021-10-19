@@ -1,5 +1,4 @@
-# NLP-with-Python
-___
+# Обработка естественного языка с использованием Python - Криптография
 ### Облако тэгов
 ![Облако тэгов](https://raw.githubusercontent.com/odrimma/NLP-with-Python/main/TermCloud.png)
 ### Топ-15 ключевых 'игроков' на соснове 200 статей
