@@ -5,6 +5,7 @@ def writing_json(data_list, name):
    try:
       with open(name, 'a', encoding="utf-8") as file:
          json.dump(data_list, file, indent=4, ensure_ascii=False)
+      return 'Ок'
    except:
       print('Не удалось записать файл!')
       return None

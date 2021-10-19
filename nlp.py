@@ -32,5 +32,5 @@ def nlp_fun(text):
             span.extract_fact(names_extractor)
     name_dict = {_.normal: _.fact.as_dict for _ in doc.spans if _.fact}
     if name_dict:
-        name_dict = list(set(name_dict))
+        name_dict = list(name_dict)
     return name_dict, doc.tokens

@@ -9,7 +9,6 @@ from wordcloud import WordCloud
 
 def main_nlp(data):
     total_pub = 1
-    total_terms = []
     total_persons = []
     c = Counter()
     for item in data:
@@ -18,13 +17,13 @@ def main_nlp(data):
             for jtem in tokens:
                 if jtem.pos == ('NOUN' or 'ADJF' or 'VERB' or 'ADVB'):
                     c[jtem.lemma] += 1
-            print('Статья {} - Готов'.format(total_pub))
         total_persons += names
+        print('Статья {} - Готов'.format(total_pub))
         if total_pub > 200:
+            total_persons = [key for key, value in Counter(total_persons).most_common(15)]
             for key, value in list(c.items()):
                 if value < 20:
                     del c[key]
-            print(c)
             total_terms = list(c.elements())
             total_persons = list(set(total_persons))
             return total_terms, total_persons
@@ -40,10 +39,10 @@ def create_cloud(total_terms, filename):
 
 def main():
     print('Извлекаем информацию из источников...')
-    data_list = scraping('https://habr.com/ru/search/', 'криптография')
-    if not writing_json(data_list, 'data.json'):
-        return None
-    print('Извлечение завершено!')
+    # data_list = scraping('https://habr.com/ru/search/', 'криптография')
+    # if not writing_json(data_list, 'data.json'):
+    #     return None
+    # print('Извлечение завершено!')
     data = read_json('data.json')
     if not data:
         return None
